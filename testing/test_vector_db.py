@@ -9,12 +9,9 @@ Phase 3.
 Run this from the project root with:  python testing/test_vector_db.py
 """
 
-import os
 import chromadb
 from chromadb.config import Settings
-
-HERE = os.path.dirname(os.path.abspath(__file__))
-DB_PATH = os.path.join(os.path.dirname(HERE), "knowledge_base", "chroma_db")
+from knowledge_base.db_location import CHROMA_DB_PATH as DB_PATH
 
 
 def search(query, n_results=3):

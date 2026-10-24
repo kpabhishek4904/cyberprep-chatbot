@@ -58,9 +58,8 @@ from core.chat_engine import handle_user_message
 # fresh deployment, there's no one to run that command -- so the app
 # checks for the database on startup and builds it automatically the
 # first time, the same way the manual script does.
-_CHROMA_DB_PATH = os.path.join(
-    os.path.dirname(os.path.abspath(__file__)), "knowledge_base", "chroma_db"
-)
+from knowledge_base.db_location import CHROMA_DB_PATH as _CHROMA_DB_PATH
+
 if not os.path.exists(_CHROMA_DB_PATH):
     with st.spinner("Setting up knowledge base for the first time..."):
         from knowledge_base.build_vector_db import build as _build_vector_db

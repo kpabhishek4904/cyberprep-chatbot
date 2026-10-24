@@ -8,12 +8,9 @@ its output gets attached as extra context for the model to ground its
 answer in.
 """
 
-import os
 import chromadb
 from chromadb.config import Settings
-
-HERE = os.path.dirname(os.path.abspath(__file__))
-DB_PATH = os.path.join(os.path.dirname(HERE), "knowledge_base", "chroma_db")
+from knowledge_base.db_location import CHROMA_DB_PATH as DB_PATH
 
 # Based on testing in Phase 2: genuinely relevant matches scored roughly
 # 0.86-1.43, while a clearly unrelated query scored 1.89+. This threshold

@@ -16,10 +16,10 @@ import json
 import os
 import chromadb
 from chromadb.config import Settings
+from knowledge_base.db_location import CHROMA_DB_PATH as DB_PATH
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 GLOSSARY_PATH = os.path.join(HERE, "source_documents", "glossary.json")
-DB_PATH = os.path.join(HERE, "chroma_db")
 
 
 def load_glossary():
