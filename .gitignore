@@ -11,4 +11,4 @@ session_data/
 # Python cache files
 __pycache__/
 *.pyc
-   .vs/
+.vs/
