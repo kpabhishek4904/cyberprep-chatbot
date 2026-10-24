@@ -1,0 +1,394 @@
+[
+  {
+    "term": "Cybersecurity",
+    "what": "The practice of protecting computer systems, networks, and data from unauthorized access, damage, or disruption.",
+    "why": "Protects confidentiality, integrity, and availability of information, often called the CIA triad, against evolving threats and attackers.",
+    "where": "Applied across corporate networks, cloud services, mobile devices, and industrial systems, implemented through tools like firewalls, encryption, and access controls.",
+    "keywords": ["confidentiality", "integrity", "availability", "CIA triad", "threat actor"]
+  },
+  {
+    "term": "Firewall",
+    "what": "A system (hardware or software) that monitors and controls incoming and outgoing network traffic based on defined security rules.",
+    "why": "To block unauthorized access while allowing legitimate traffic through, acting as a barrier between trusted and untrusted networks.",
+    "where": "Network perimeters, individual devices (host-based firewalls), cloud environments (security groups).",
+    "keywords": ["packet filtering", "inbound/outbound traffic", "rules", "network perimeter", "trusted vs untrusted"]
+  },
+  {
+    "term": "VPN",
+    "what": "A Virtual Private Network creates an encrypted tunnel over a public network, like the internet, to securely connect a user to a private network.",
+    "why": "Protects data confidentiality in transit and enables secure remote access to internal resources.",
+    "where": "Remote work access, securing traffic on public Wi-Fi.",
+    "keywords": ["encrypted tunnel", "remote access", "encapsulation", "confidentiality"]
+  },
+  {
+    "term": "DNS",
+    "what": "The Domain Name System translates human-readable domain names, like google.com, into IP addresses computers use to find each other.",
+    "why": "Humans remember names more easily than numbers; DNS automates that translation.",
+    "where": "Every time you browse the internet; also used internally in corporate networks.",
+    "keywords": ["domain name resolution", "IP address", "DNS query", "DNS record"]
+  },
+  {
+    "term": "Phishing",
+    "what": "A social engineering attack where attackers impersonate a trusted entity to trick victims into revealing sensitive information or installing malware.",
+    "why": "To steal credentials, financial data, or gain initial network access.",
+    "where": "Email (most common), SMS (smishing), phone calls (vishing), fake websites.",
+    "keywords": ["social engineering", "spoofed sender", "credential harvesting", "malicious link", "malicious attachment"]
+  },
+  {
+    "term": "Encryption",
+    "what": "Converts readable data, called plaintext, into an unreadable format called ciphertext, using an algorithm and a key.",
+    "why": "Protects data confidentiality so only authorized parties with the correct key can read it.",
+    "where": "Securing data in transit (HTTPS, VPN) and data at rest (encrypted disks, databases).",
+    "keywords": ["plaintext", "ciphertext", "encryption key", "confidentiality"]
+  },
+  {
+    "term": "Multi-Factor Authentication",
+    "what": "Requires two or more independent proofs of identity before granting access: something you know, something you have, or something you are.",
+    "why": "Reduces risk of unauthorized access even if one factor, like a password, is compromised.",
+    "where": "Logging into email, banking apps, corporate VPNs, cloud services.",
+    "keywords": ["something you know", "something you have", "something you are", "one-time password", "authentication factor"]
+  },
+  {
+    "term": "Zero-Day Vulnerability",
+    "what": "A security flaw unknown to the software vendor, with no official patch available yet.",
+    "why": "Attackers can exploit it before defenders get a chance to fix it, making it especially dangerous.",
+    "where": "Found in operating systems, browsers, applications; often used in targeted or advanced attacks.",
+    "keywords": ["unpatched vulnerability", "exploit", "patch", "vendor disclosure"]
+  },
+  {
+    "term": "SIEM",
+    "what": "Security Information and Event Management is a platform that collects, aggregates, and analyzes log data from across an organization's systems to detect security events.",
+    "why": "Centralizes visibility into security events, enabling faster detection and investigation.",
+    "where": "Used by SOC analysts for monitoring and incident investigation, for example Splunk or Microsoft Sentinel.",
+    "keywords": ["log aggregation", "correlation rules", "centralized visibility", "alerting"]
+  },
+  {
+    "term": "Incident Response",
+    "what": "The structured process an organization follows to detect, contain, eradicate, and recover from a security incident.",
+    "why": "Minimizes damage, reduces recovery time and cost, prevents recurrence.",
+    "where": "Used by SOC and CSIRT teams responding to malware infections, breaches, unauthorized access.",
+    "keywords": ["containment", "eradication", "recovery", "root cause analysis"]
+  },
+  {
+    "term": "Threat Intelligence",
+    "what": "Information about current or emerging threats, such as attacker tactics and indicators of compromise, used to inform security decisions.",
+    "why": "Enables proactive defense against adversary behavior, rather than purely reactive responses.",
+    "where": "SOC threat hunting, enriching SIEM alerts, informing detection rules.",
+    "keywords": ["indicators of compromise", "IOCs", "threat actor", "TTPs", "MITRE ATT&CK"]
+  },
+  {
+    "term": "False Positive",
+    "what": "An alert indicating malicious activity when the activity was actually legitimate or benign.",
+    "why": "Too many false positives cause alert fatigue and waste analyst time.",
+    "where": "Common in SIEM and IDS alerting, addressed through detection rule tuning.",
+    "keywords": ["alert fatigue", "detection tuning", "benign activity"]
+  },
+  {
+    "term": "Zero Trust",
+    "what": "A security model that assumes no user or device should be automatically trusted, even inside the network perimeter.",
+    "why": "Traditional perimeter-based security fails once an attacker gets inside; zero trust limits lateral movement and damage.",
+    "where": "Implemented via strict identity verification, micro-segmentation, least privilege access.",
+    "keywords": ["least privilege", "continuous verification", "micro-segmentation", "lateral movement"]
+  },
+  {
+    "term": "Malware",
+    "what": "Malicious software designed to damage, disrupt, or gain unauthorized access to a computer system. It is an umbrella term covering viruses, worms, trojans, ransomware, and spyware.",
+    "why": "Attackers use malware to steal data, maintain persistent access, disrupt operations, or generate revenue through extortion and fraud.",
+    "where": "Delivered through malicious email attachments, infected downloads, compromised websites, and removable media; detected using antivirus and EDR tools.",
+    "keywords": ["virus", "worm", "trojan", "spyware", "payload"]
+  },
+  {
+    "term": "Ransomware",
+    "what": "A type of malware that encrypts a victim's files or locks access to systems, then demands payment, called a ransom, in exchange for restoring access.",
+    "why": "Extortion is highly profitable for attackers and can severely disrupt business operations, pressuring organizations to pay to recover critical data.",
+    "where": "Commonly delivered through phishing emails, exploited vulnerabilities, or compromised remote access services; has affected hospitals, governments, and corporations worldwide.",
+    "keywords": ["encryption", "extortion", "ransom payment", "decryption key", "backup recovery"]
+  },
+  {
+    "term": "DDoS",
+    "what": "A Distributed Denial of Service attack floods a target system or network with overwhelming traffic from many sources at once, making it unavailable to legitimate users.",
+    "why": "It attacks availability, one of the three pillars of the CIA triad, and is often used for extortion, sabotage, or as a distraction during another attack.",
+    "where": "Targets web servers, APIs, and network infrastructure; mitigated using traffic scrubbing services, rate limiting, and content delivery networks.",
+    "keywords": ["botnet", "traffic flooding", "availability", "amplification attack", "rate limiting"]
+  },
+  {
+    "term": "SQL Injection",
+    "what": "A web application vulnerability where an attacker inserts malicious SQL code into an input field to manipulate or extract data from the backend database.",
+    "why": "It lets attackers read, modify, or delete sensitive data, bypass authentication, or gain administrative control over a database.",
+    "where": "Found in poorly sanitized login forms, search bars, and URL parameters; prevented using parameterized queries and input validation.",
+    "keywords": ["input validation", "parameterized queries", "database", "OWASP Top 10", "sanitization"]
+  },
+  {
+    "term": "Social Engineering",
+    "what": "The use of psychological manipulation to trick people into revealing confidential information or performing actions that compromise security.",
+    "why": "It exploits human trust and error rather than technical flaws, and is often the easiest way for attackers to bypass strong technical defenses.",
+    "where": "Seen in phishing emails, pretexting phone calls, baiting with infected USB drives, and tailgating into secure buildings.",
+    "keywords": ["manipulation", "pretexting", "baiting", "tailgating", "human factor"]
+  },
+  {
+    "term": "Man-in-the-Middle Attack",
+    "what": "An attack where an adversary secretly intercepts, and possibly alters, communication between two parties who believe they are communicating directly with each other.",
+    "why": "It allows attackers to eavesdrop on sensitive data, steal credentials, or inject malicious content into a legitimate communication stream.",
+    "where": "Common on unsecured public Wi-Fi and through ARP spoofing on local networks; prevented using encryption such as TLS and proper certificate validation.",
+    "keywords": ["eavesdropping", "session hijacking", "ARP spoofing", "TLS", "certificate validation"]
+  },
+  {
+    "term": "IDS/IPS",
+    "what": "An Intrusion Detection System monitors network or system traffic for suspicious activity and raises alerts, while an Intrusion Prevention System also actively blocks detected threats in real time.",
+    "why": "Provides visibility into malicious activity and, with IPS, automated response, shrinking the window of opportunity for attackers.",
+    "where": "Deployed at network boundaries and on critical servers, usually alongside firewalls and SIEM platforms for layered defense.",
+    "keywords": ["signature-based detection", "anomaly detection", "network monitoring", "automated blocking", "alerting"]
+  },
+  {
+    "term": "EDR",
+    "what": "Endpoint Detection and Response is a security solution that continuously monitors endpoint devices such as laptops and servers, collecting behavioral data to detect, investigate, and respond to threats.",
+    "why": "It gives deep visibility into endpoint activity, catching sophisticated attacks that bypass traditional antivirus and enabling fast response, such as isolating a compromised device.",
+    "where": "Deployed on workstations, servers, and virtual machines in enterprise environments, and integrated into SOC workflows for incident response.",
+    "keywords": ["endpoint visibility", "behavioral analysis", "threat detection", "host isolation", "incident response"]
+  },
+  {
+    "term": "DLP",
+    "what": "Data Loss Prevention is a set of tools and processes that monitor, detect, and block sensitive data from leaving an organization's control, whether intentionally or accidentally.",
+    "why": "Protects confidential information such as personal data, intellectual property, and financial records from exposure, and supports regulatory compliance.",
+    "where": "Deployed on email gateways, endpoints, and cloud storage to stop sensitive data being emailed externally, copied to USB drives, or uploaded to unauthorized cloud apps.",
+    "keywords": ["data exfiltration", "sensitive data", "compliance", "content inspection", "policy enforcement"]
+  },
+  {
+    "term": "Least Privilege",
+    "what": "A security principle stating that users, systems, and processes should be granted only the minimum level of access needed to perform their function.",
+    "why": "Limits the damage from a compromised account or insider threat by reducing the number of resources an attacker can reach.",
+    "where": "Applied through role-based access control, restricting administrative rights, and regularly reviewing user permissions in corporate environments.",
+    "keywords": ["role-based access control", "minimum necessary access", "privilege escalation", "access review"]
+  },
+  {
+    "term": "Defense in Depth",
+    "what": "A security strategy that layers multiple, independent defensive controls so that if one layer fails, others still provide protection.",
+    "why": "No single control is perfect, so layering defenses reduces the chance that one failure leads to a full compromise.",
+    "where": "Implemented through a combination of firewalls, endpoint protection, network segmentation, access controls, and employee security training.",
+    "keywords": ["layered security", "redundancy", "network segmentation", "single point of failure"]
+  },
+  {
+    "term": "Hashing",
+    "what": "A one-way mathematical process that converts data of any size into a fixed-length string called a hash, which cannot be reversed back into the original data.",
+    "why": "Used to verify data integrity and store passwords securely, since even a tiny change in the input produces a completely different hash.",
+    "where": "Used in password storage (for example bcrypt), file integrity verification with algorithms like SHA-256, and digital signatures.",
+    "keywords": ["hash function", "one-way function", "integrity verification", "password storage", "collision"]
+  },
+  {
+    "term": "Patch Management",
+    "what": "The process of identifying, testing, and installing software updates, called patches, that fix security vulnerabilities and bugs.",
+    "why": "Unpatched software is one of the most common ways attackers gain access, so timely patching closes known vulnerabilities before they can be exploited.",
+    "where": "Applied across operating systems, applications, and network devices in enterprise IT, often automated with patch management tools.",
+    "keywords": ["vulnerability management", "software updates", "CVE", "patch cycle", "automated deployment"]
+  },
+  {
+    "term": "SOC",
+    "what": "A Security Operations Center is a centralized team and facility responsible for continuously monitoring, detecting, analyzing, and responding to cybersecurity incidents across an organization.",
+    "why": "Centralizes security monitoring and response so threats are detected and handled quickly, rather than being discovered too late or missed entirely.",
+    "where": "Operates around the clock in enterprises, government agencies, and managed security service providers, using SIEM, EDR, and threat intelligence tools.",
+    "keywords": ["security monitoring", "SOC analyst", "tiered response", "24/7 operations", "incident handling"]
+  },
+  {
+    "term": "CIA Triad",
+    "what": "A foundational security model made up of three goals: confidentiality (keeping data private), integrity (keeping data accurate and unaltered), and availability (keeping data and systems accessible when needed).",
+    "why": "It defines what security is actually trying to protect, giving analysts a shared framework for evaluating risks and designing controls.",
+    "where": "Referenced constantly in risk assessments, security policies, and when explaining why a specific control or attack matters.",
+    "keywords": ["confidentiality", "integrity", "availability", "information security goals", "risk assessment"]
+  },
+  {
+    "term": "MITRE ATT&CK",
+    "what": "A publicly available knowledge base that catalogs real-world attacker tactics, techniques, and procedures, known as TTPs, organized into a structured framework.",
+    "why": "Gives defenders a common language to describe attacker behavior, map detections, and identify gaps in security coverage.",
+    "where": "Used by SOC analysts and threat hunters to classify incidents, by detection engineers to build rules, and by red teams to plan realistic attack simulations.",
+    "keywords": ["tactics techniques and procedures", "TTPs", "threat actor behavior", "detection coverage", "framework"]
+  },
+  {
+    "term": "Indicator of Compromise",
+    "what": "A piece of forensic data, such as an IP address, file hash, or domain name, that suggests a system may have been breached or is communicating with malicious infrastructure.",
+    "why": "Lets analysts quickly recognize known malicious activity and search across systems for signs of the same compromise elsewhere.",
+    "where": "Used in SIEM searches, threat intelligence feeds, and incident investigations to confirm or scope a breach.",
+    "keywords": ["IOC", "file hash", "malicious IP", "threat intelligence", "forensic artifact"]
+  },
+  {
+    "term": "Authentication",
+    "what": "The process of verifying that a user, device, or system is who or what it claims to be, typically through a password, token, or biometric factor.",
+    "why": "Without confirming identity first, there is no reliable way to control who gets access to a system or resource.",
+    "where": "Happens at every login, from unlocking a laptop to signing into a corporate VPN or cloud service.",
+    "keywords": ["identity verification", "credentials", "login", "biometrics", "single sign-on"]
+  },
+  {
+    "term": "Authorization",
+    "what": "The process of determining what an already-authenticated user or system is actually allowed to do or access.",
+    "why": "Authentication alone only confirms identity; authorization enforces the boundaries of what that identity can touch, preventing unnecessary access.",
+    "where": "Applied through role-based access control, file permissions, and API scopes across applications, networks, and cloud platforms.",
+    "keywords": ["access control", "permissions", "role-based access control", "least privilege", "scope"]
+  },
+  {
+    "term": "Red Team",
+    "what": "A group that simulates real-world attackers to test an organization's defenses through authorized, offensive security exercises.",
+    "why": "Reveals how a real attacker could actually breach the organization, testing people, processes, and technology together rather than just scanning for flaws.",
+    "where": "Used in advanced security programs to run full attack simulations, often without the defending team's prior knowledge, to test real detection and response.",
+    "keywords": ["offensive security", "attack simulation", "adversary emulation", "authorized testing"]
+  },
+  {
+    "term": "Blue Team",
+    "what": "The defensive team responsible for monitoring, detecting, and responding to security threats, including during exercises against a Red Team.",
+    "why": "Represents the organization's actual defenders, whose job is to detect and stop attacks, making their performance the real measure of security readiness.",
+    "where": "Operates within the SOC, handling day-to-day monitoring as well as responding to simulated Red Team attacks during exercises.",
+    "keywords": ["defensive security", "SOC", "detection", "incident response", "monitoring"]
+  },
+  {
+    "term": "Purple Team",
+    "what": "A collaborative exercise where Red Team attackers and Blue Team defenders work together, sharing techniques and findings in real time rather than operating separately.",
+    "why": "Maximizes learning from an exercise by immediately turning discovered attack techniques into improved detections, instead of waiting for a report afterward.",
+    "where": "Used in mature security programs to rapidly improve detection coverage and validate that defensive tooling catches specific attacker techniques.",
+    "keywords": ["collaboration", "detection engineering", "adversary emulation", "continuous improvement"]
+  },
+  {
+    "term": "XSS",
+    "what": "Cross-Site Scripting is a web vulnerability where an attacker injects malicious scripts into a trusted website, which then execute in other users' browsers.",
+    "why": "Lets attackers steal session cookies, hijack accounts, or redirect users to malicious sites, all while appearing to come from a legitimate, trusted site.",
+    "where": "Found in comment sections, search fields, and any input that reflects user content back into a webpage without proper sanitization; prevented with output encoding and content security policies.",
+    "keywords": ["script injection", "session hijacking", "input sanitization", "OWASP Top 10", "content security policy"]
+  },
+  {
+    "term": "CSRF",
+    "what": "Cross-Site Request Forgery tricks a logged-in user's browser into submitting an unwanted request to a website where they are currently authenticated, without their knowledge.",
+    "why": "Exploits the trust a website has in a user's browser session, letting attackers perform actions like changing account settings or transferring funds on the victim's behalf.",
+    "where": "Mitigated using anti-CSRF tokens, same-site cookies, and verifying the origin of sensitive requests in web applications.",
+    "keywords": ["session riding", "anti-CSRF token", "same-site cookies", "authenticated session"]
+  },
+  {
+    "term": "WAF",
+    "what": "A Web Application Firewall filters, monitors, and blocks malicious HTTP traffic between a web application and the internet, based on defined security rules.",
+    "why": "Provides a protective layer against common web attacks such as SQL injection and XSS, even before a vulnerability in the application itself is patched.",
+    "where": "Deployed in front of web applications and APIs, either as a cloud service, hardware appliance, or software module.",
+    "keywords": ["HTTP filtering", "rule-based protection", "OWASP Top 10", "application layer", "virtual patching"]
+  },
+  {
+    "term": "Penetration Testing",
+    "what": "An authorized, simulated cyberattack against a system, network, or application to identify exploitable security weaknesses before real attackers do.",
+    "why": "Provides concrete, real-world validation of security posture, going beyond automated scanning to show how vulnerabilities could actually be chained and exploited.",
+    "where": "Conducted by internal red teams or external security firms, often required periodically for compliance standards like PCI-DSS.",
+    "keywords": ["ethical hacking", "vulnerability exploitation", "authorized testing", "scope", "reporting"]
+  },
+  {
+    "term": "Vulnerability",
+    "what": "A weakness in a system, application, or process that could potentially be exploited by a threat to cause harm.",
+    "why": "Identifying and understanding vulnerabilities is the first step in managing risk, since an unaddressed weakness is a potential entry point for attackers.",
+    "where": "Found through vulnerability scanning, code review, and penetration testing; tracked using identifiers such as CVEs and prioritized using severity scores like CVSS.",
+    "keywords": ["CVE", "CVSS", "weakness", "vulnerability scanning", "attack surface"]
+  },
+  {
+    "term": "Exploit",
+    "what": "A piece of code, technique, or sequence of actions that takes advantage of a specific vulnerability to cause unintended behavior, such as gaining unauthorized access.",
+    "why": "An exploit is what turns a theoretical vulnerability into an actual, usable attack, making the distinction between the two important when assessing real risk.",
+    "where": "Developed and used by attackers, and by penetration testers and researchers to responsibly demonstrate a vulnerability's real-world impact.",
+    "keywords": ["proof of concept", "zero-day exploit", "exploit kit", "remote code execution"]
+  },
+  {
+    "term": "Risk",
+    "what": "The potential for loss or damage when a threat exploits a vulnerability, generally expressed as a combination of likelihood and impact.",
+    "why": "Risk, rather than vulnerabilities alone, is what organizations actually prioritize and manage, since not every weakness poses the same level of danger.",
+    "where": "Assessed through formal risk assessments, used to prioritize which vulnerabilities get patched first, and reported to leadership as part of governance and compliance.",
+    "keywords": ["risk assessment", "likelihood", "impact", "risk management", "prioritization"]
+  },
+  {
+    "term": "Privilege Escalation",
+    "what": "A technique where an attacker who has gained limited access to a system increases their permissions, often moving from a standard user to an administrator or root account.",
+    "why": "Higher privileges let attackers access more sensitive data, install persistent tools, and move further through a network.",
+    "where": "Exploited through misconfigured permissions, unpatched vulnerabilities, or stolen credentials; a key stage in most post-exploitation attack chains.",
+    "keywords": ["post-exploitation", "root access", "administrator access", "misconfiguration", "lateral movement"]
+  },
+  {
+    "term": "Cyber Kill Chain",
+    "what": "A model that breaks down a cyberattack into a sequence of stages, from initial reconnaissance through to achieving the attacker's final objective.",
+    "why": "Helps defenders understand where in an attack's progression they can detect or disrupt it, rather than only reacting after the damage is done.",
+    "where": "Used in threat intelligence and incident response to map observed attacker activity and identify at which stage an attack was stopped.",
+    "keywords": ["reconnaissance", "weaponization", "delivery", "exploitation", "attack lifecycle"]
+  },
+  {
+    "term": "Active Directory",
+    "what": "A Microsoft directory service that centrally manages users, computers, and permissions across a Windows-based network domain.",
+    "why": "Provides a single, centralized point for authentication and access control across an entire organization, which also makes it a high-value target for attackers.",
+    "where": "Used in virtually all enterprise Windows environments to manage logins, group policies, and resource access across the network.",
+    "keywords": ["domain controller", "directory service", "group policy", "domain admin", "Windows domain"]
+  },
+  {
+    "term": "Kerberoasting",
+    "what": "An attack technique that targets Active Directory's Kerberos authentication protocol, extracting service account password hashes to crack offline.",
+    "why": "Lets an attacker with only basic domain access potentially obtain highly privileged service account credentials without triggering obvious alerts.",
+    "where": "Performed against Active Directory environments during internal penetration tests and real-world attacks aiming for privilege escalation.",
+    "keywords": ["Kerberos", "service account", "ticket-granting ticket", "offline cracking", "Active Directory"]
+  },
+  {
+    "term": "Pass-the-Hash",
+    "what": "An attack technique where an attacker uses a stolen password hash directly to authenticate to a system, without ever needing to know or crack the actual plaintext password.",
+    "why": "Allows lateral movement across a network using credentials harvested from one compromised machine, bypassing the need to break encryption.",
+    "where": "Common in Windows network environments, exploiting how authentication protocols validate hashes rather than plaintext passwords.",
+    "keywords": ["lateral movement", "credential theft", "NTLM hash", "authentication bypass"]
+  },
+  {
+    "term": "Digital Forensics",
+    "what": "The practice of collecting, preserving, and analyzing digital evidence from systems and devices to investigate a security incident or crime.",
+    "why": "Establishes exactly what happened during an incident, supports legal or disciplinary action, and helps prevent similar incidents in the future.",
+    "where": "Applied to compromised endpoints, servers, and mobile devices during incident response, and in legal investigations involving digital evidence.",
+    "keywords": ["evidence preservation", "chain of custody", "memory forensics", "disk imaging", "incident investigation"]
+  },
+  {
+    "term": "Threat Hunting",
+    "what": "The proactive practice of searching through networks and systems to detect threats that have evaded existing automated security defenses.",
+    "why": "Automated tools and alerts cannot catch everything, especially subtle or novel attacker techniques, so proactive hunting helps find hidden compromises before they cause major damage.",
+    "where": "Performed by experienced SOC analysts using SIEM data, threat intelligence, and frameworks like MITRE ATT&CK to form and test hypotheses about hidden threats.",
+    "keywords": ["proactive detection", "hypothesis-driven", "SIEM", "MITRE ATT&CK", "hidden threats"]
+  },
+  {
+    "term": "IAM",
+    "what": "Identity and Access Management is a framework of policies and technologies for ensuring the right individuals have the appropriate access to the right resources at the right time.",
+    "why": "Centralizes control over who can access what, reducing the risk of unauthorized access while making it easier to manage permissions at scale.",
+    "where": "Used extensively in cloud platforms and enterprise systems to manage user identities, roles, and permissions across many applications and services.",
+    "keywords": ["identity management", "access control", "role-based access", "single sign-on", "cloud security"]
+  },
+  {
+    "term": "Cloud Security",
+    "what": "The set of practices, controls, and technologies used to protect data, applications, and infrastructure hosted in cloud computing environments.",
+    "why": "Cloud environments introduce unique risks, such as misconfigurations and shared responsibility confusion, that differ from traditional on-premises security.",
+    "where": "Applied across platforms like AWS, Azure, and Google Cloud, using tools for identity management, encryption, and continuous configuration monitoring.",
+    "keywords": ["shared responsibility model", "misconfiguration", "cloud workload protection", "IAM", "encryption"]
+  },
+  {
+    "term": "Risk Management",
+    "what": "The ongoing process of identifying, assessing, and prioritizing risks, then applying resources to minimize, monitor, and control their impact.",
+    "why": "Organizations cannot eliminate all risk, so risk management ensures limited security resources are focused on the threats that matter most.",
+    "where": "Formalized through risk assessments, risk registers, and frameworks like NIST and ISO 27001 across governance, compliance, and security programs.",
+    "keywords": ["risk assessment", "risk appetite", "risk register", "mitigation", "governance"]
+  },
+  {
+    "term": "Compliance",
+    "what": "The practice of meeting legal, regulatory, or industry requirements related to security and data protection, such as ISO 27001, PCI-DSS, or GDPR.",
+    "why": "Non-compliance can result in legal penalties, loss of customer trust, and in many industries, directly reflects whether adequate security controls are in place.",
+    "where": "Assessed through audits and certifications, and tracked by governance, risk, and compliance teams within an organization.",
+    "keywords": ["regulatory requirements", "audit", "ISO 27001", "GDPR", "GRC"]
+  },
+  {
+    "term": "AI in Cybersecurity",
+    "what": "The application of artificial intelligence and machine learning to both defend against and carry out cyberattacks, including automated threat detection and AI-assisted attacks.",
+    "why": "AI can process vast amounts of security data far faster than humans, enabling quicker threat detection, but the same capability can also be weaponized by attackers for more convincing phishing or automated reconnaissance.",
+    "where": "Used in SOC automation and anomaly detection on the defensive side, and increasingly seen in AI-generated phishing content and deepfake-based social engineering on the offensive side.",
+    "keywords": ["machine learning", "automated detection", "adversarial AI", "anomaly detection", "AI-assisted attacks"]
+  },
+  {
+    "term": "Prompt Injection",
+    "what": "An attack technique against AI language models where malicious input is crafted to override or manipulate the model's original instructions.",
+    "why": "Can cause an AI system to ignore its safety guidelines, leak sensitive information, or perform unintended actions, making it a growing concern as AI tools become more integrated into real systems.",
+    "where": "A risk in any AI-powered application that processes untrusted user input or external content, from chatbots to AI agents with real-world permissions.",
+    "keywords": ["LLM security", "jailbreak", "untrusted input", "AI safety", "adversarial input"]
+  },
+  {
+    "term": "OWASP Top 10",
+    "what": "The OWASP Top 10:2025 is the current edition of a regularly updated ranking of the ten most critical web application security risks, published by the Open Worldwide Application Security Project. The ten categories are: A01 Broken Access Control, A02 Security Misconfiguration, A03 Software Supply Chain Failures, A04 Cryptographic Failures, A05 Injection, A06 Insecure Design, A07 Authentication Failures, A08 Software or Data Integrity Failures, A09 Security Logging and Alerting Failures, and A10 Mishandling of Exceptional Conditions. This replaced the previous 2021 edition, so older sources may list a different order and categories.",
+    "why": "Gives developers, security teams, and auditors a widely recognized, prioritized reference for the most impactful application security risks, helping focus limited time and resources on what matters most.",
+    "where": "Used to guide secure coding practices, define penetration testing scope, train developers, and as a baseline requirement in many compliance and security assessment programs.",
+    "keywords": ["web application security", "OWASP", "risk ranking", "secure coding", "application security"]
+  }
+]

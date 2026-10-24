@@ -1,0 +1,14 @@
+# Never upload secrets
+.env
+
+# Virtual environment (everyone sets this up themselves locally)
+venv/
+
+# Generated data (rebuilt automatically, not source code)
+knowledge_base/chroma_db/
+session_data/
+
+# Python cache files
+__pycache__/
+*.pyc
+   .vs/
