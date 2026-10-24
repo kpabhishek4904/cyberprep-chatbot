@@ -15,29 +15,78 @@ import random
 import streamlit as st
 import markdown as md_lib
 
+# set_page_config() must be the very first Streamlit command to run, before
+# ANYTHING else that touches st.* -- including st.secrets below, which
+# Streamlit renders its own warning box for internally when no secrets.toml
+# exists (as is expected locally). That internal render counts as "a
+# Streamlit command," so it has to come after this line, not before.
+st.set_page_config(page_title="CyberPrep", page_icon="🛡︎", layout="wide")
+
+# --- Deployment setup: bridge Streamlit Cloud secrets into the environment ---
+# Locally, the GROQ_API_KEY comes from a .env file (loaded by python-dotenv
+# inside core/llm_client_groq.py). On Streamlit Community Cloud, there is no
+# .env file -- the key is instead set as a "secret" in the app's dashboard
+# and exposed through st.secrets. Copying it into os.environ here means the
+# existing llm_client_groq.py code works unchanged in both places.
+#
+# This MUST happen before importing llm_client_groq below, since that module
+# creates its Groq client as soon as it's imported, not inside a function --
+# the key needs to already be in the environment by then.
+try:
+    if "GROQ_API_KEY" in st.secrets:
+        os.environ["GROQ_API_KEY"] = st.secrets["GROQ_API_KEY"]
+except Exception:
+    pass  # no secrets.toml locally -- that's fine, .env handles it instead
+
+# Running locally is detected by the presence of a .env file, which only
+# ever exists on your own machine (it's excluded from Git, so a deployed
+# copy never has one). This same flag is reused further down to decide
+# whether conversation persistence should be enabled -- see that section
+# for why it matters.
+IS_LOCAL = os.path.exists(
+    os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env")
+)
+
 # Pick ONE backend by uncommenting the import you want to use.
 from core.llm_client_groq import ask_cyberprep
 # from core.llm_client_ollama import ask_cyberprep
 from core.prompt_template import SYSTEM_PROMPT
 from core.chat_engine import handle_user_message
 
-st.set_page_config(page_title="CyberPrep", page_icon="🛡︎", layout="wide")
+# --- Auto-build the knowledge base if it doesn't exist yet -------------
+# Locally, you run knowledge_base/build_vector_db.py manually once. On a
+# fresh deployment, there's no one to run that command -- so the app
+# checks for the database on startup and builds it automatically the
+# first time, the same way the manual script does.
+_CHROMA_DB_PATH = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)), "knowledge_base", "chroma_db"
+)
+if not os.path.exists(_CHROMA_DB_PATH):
+    with st.spinner("Setting up knowledge base for the first time..."):
+        from knowledge_base.build_vector_db import build as _build_vector_db
+        _build_vector_db()
 
-# --- Conversation persistence -----------------------------------------
+# --- Conversation persistence (LOCAL USE ONLY) --------------------------
 # Streamlit's session_state does NOT survive a hard browser refresh (F5) --
 # a refresh opens a new session from Streamlit's point of view, wiping
 # session_state back to empty. To fix this, the conversation is also saved
 # to a local file after every turn, and reloaded from that file on
-# startup if session_state is empty. This is a simple, single-user fix
-# suited to running the app locally -- it does NOT separate multiple
-# browser tabs open at once; they'll share the same saved conversation.
+# startup if session_state is empty.
+#
+# This is gated behind IS_LOCAL on purpose: on a public deployment, every
+# visitor would share the SAME saved file, meaning strangers could see
+# each other's conversations -- a real privacy issue, not just a quirk.
+# When deployed, this is skipped entirely, and Streamlit's normal
+# per-visitor session_state is used instead, which is the correct,
+# private behavior for a public app (a refresh there just starts fresh,
+# same as any other hosted chatbot).
 SESSION_FILE = os.path.join(
     os.path.dirname(os.path.abspath(__file__)), "session_data", "current_conversation.json"
 )
 
 
 def _load_conversation():
-    if os.path.exists(SESSION_FILE):
+    if IS_LOCAL and os.path.exists(SESSION_FILE):
         try:
             with open(SESSION_FILE, "r", encoding="utf-8") as f:
                 data = json.load(f)
@@ -49,6 +98,8 @@ def _load_conversation():
 
 
 def _save_conversation(conversation):
+    if not IS_LOCAL:
+        return
     os.makedirs(os.path.dirname(SESSION_FILE), exist_ok=True)
     try:
         with open(SESSION_FILE, "w", encoding="utf-8") as f:
