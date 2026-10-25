@@ -12,3 +12,4 @@ session_data/
 __pycache__/
 *.pyc
 .vs/
+.streamlit/secrets.toml
