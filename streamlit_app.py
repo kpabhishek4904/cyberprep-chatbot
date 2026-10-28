@@ -168,6 +168,37 @@ st.markdown(
             1px 1px 1px rgba(255, 255, 255, 0.08);
     }
 
+    /* Mobile responsiveness -- everything above was sized and spaced by
+       eye on a desktop browser, with no consideration for how it scales
+       down to a phone-width screen. On narrow viewports, Streamlit stacks
+       the header's two columns vertically, but the fixed desktop sizing
+       (large padding, large font) still looked disproportionate next to
+       such a narrow surrounding layout -- this scales those same
+       elements down for anything phone-width or narrower. */
+    @media (max-width: 640px) {
+        .block-container {
+            padding-left: 1rem !important;
+            padding-right: 1rem !important;
+        }
+        .brand-plaque {
+            padding: 8px 14px;
+            gap: 8px;
+        }
+        .brand-icon {
+            font-size: 1.1rem;
+        }
+        .brand-title {
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+        }
+        .user-bubble {
+            max-width: 85%;
+        }
+        .assistant-bubble {
+            max-width: 100%;
+        }
+    }
+
     /* Keep the header row (logo + Clear Chat button) pinned to the top
        of the screen while scrolling through chat history. Targets
        Streamlit's column-row wrapper directly -- this is the only
