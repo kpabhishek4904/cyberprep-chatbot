@@ -197,6 +197,42 @@ st.markdown(
         .assistant-bubble {
             max-width: 100%;
         }
+        /* The chat input's placeholder text was sized for desktop and
+           was too long to fit on one line at phone width, wrapping to a
+           second line that then got visually clipped. Shrinking the
+           font gives it a real chance to fit on one line; the fallback
+           below truncates with "..." instead of wrapping, in case it
+           still doesn't fit on a particularly narrow screen. */
+        [data-testid="stChatInput"] textarea,
+        [data-testid="stChatInput"] input {
+            font-size: 0.85rem !important;
+        }
+        [data-testid="stChatInput"] textarea::placeholder {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+    /* An extra, more aggressive tier for genuinely narrow phone screens
+       -- the 640px breakpoint above is tuned more for small tablets /
+       large phones, and wasn't shrinking things enough on a typical
+       phone width on its own. */
+    @media (max-width: 420px) {
+        .brand-title {
+            font-size: 1.2rem;
+        }
+        .brand-icon {
+            font-size: 0.95rem;
+        }
+        .brand-plaque {
+            padding: 6px 10px;
+            gap: 6px;
+        }
+        [data-testid="stChatInput"] textarea,
+        [data-testid="stChatInput"] input {
+            font-size: 0.75rem !important;
+        }
     }
 
     /* Keep the header row (logo + Clear Chat button) pinned to the top
