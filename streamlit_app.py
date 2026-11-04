@@ -156,10 +156,14 @@ st.markdown(
         color: #4a4a4e;
     }
     .brand-title {
-        /* Magneto -- a decorative Windows/Office font. Same local-font
-           dependency as Aptos above; falls back to a generic cursive
-           style if not installed. */
-        font-family: 'Magneto', cursive;
+        /* Matches the body font (Aptos/Segoe UI, same stack used
+           everywhere else) instead of Magneto -- Magneto rendered
+           inconsistently across OSes (Windows, Android, Linux all
+           substituted a different fallback cursive font, looking
+           completely different from one device to the next). Bolded to
+           stand out despite now sharing the same family as body text. */
+        font-family: 'Aptos', 'Segoe UI', -apple-system, sans-serif;
+        font-weight: 700;
         font-size: 2.1rem;
         letter-spacing: 1.5px;
         color: #3a3a3e;
