@@ -263,6 +263,15 @@ def explain_multiple_terms(
 
         try:
             answer = ask_fn(term_conversation)
+            # gpt-oss-20b is a reasoning model -- its internal "thinking"
+            # occasionally consumes nearly the entire token budget for a
+            # given question, non-deterministically, leaving little or no
+            # visible answer. Observed in practice as one term out of
+            # several coming back blank while the rest are fine. A single
+            # retry resolves it, since the issue is random per-call, not
+            # tied to the specific term being asked about.
+            if not answer or len(answer.strip()) < 20:
+                answer = ask_fn(term_conversation)
         except RateLimitError:
             sections.append(
                 f"---\n\n*Reached my request limit for this minute after "
