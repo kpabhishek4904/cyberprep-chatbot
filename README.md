@@ -167,7 +167,8 @@ This project went through five structured testing phases before deployment — t
 
 ## Known limitations
 
-- **Free-tier hosting constraints** — the app sleeps after inactivity, carries Streamlit's own branding, and may feel slightly slower than local use due to shared compute resources.
+- **Free-tier hosting constraints** — the app sleeps after inactivity, carries Streamlit's own branding and community toolbar (visible to all visitors, not just the owner — including a Fork button, a direct GitHub link, and stop/rerun controls), and may feel slightly slower than local use due to shared compute resources.
+- **Occasional cold-start error** — on rare occasions, the very first load after the app wakes from sleep can throw a `ValueError` during knowledge base initialization (a ChromaDB timing issue during database setup). A simple page refresh has always resolved it; the underlying cause hasn't been fully isolated since Streamlit redacts the specific error detail in its public-facing logs.
 - **Knowledge base scope** — 56 terms is a meaningful foundation, not exhaustive coverage of all of cybersecurity. Questions outside this scope fall back to the model's general training knowledge, which may occasionally be outdated (as the OWASP Top 10 example showed).
 - **Heuristic multi-term detection** — the system recognizes phrases like "explain each" to trigger per-term processing; sufficiently different phrasing might not be recognized.
 - **Approximate token management** — conversation history trimming uses a rough character-based token estimate, not exact tokenization.
